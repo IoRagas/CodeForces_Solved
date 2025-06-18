@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int tt; cin >> tt;
+	while (tt--)
+	{
+		int n, s, m;
+		cin >> n >> s >> m;
+		vector<pair<int,int>> table(n);
+		for(int i = 0 ; i < n ; i++)
+			cin >> table[i].first >> table[i].second;
+		bool possible = true;
+		int gap = 0;
+		if(table[0].first <= m)
+		gap = max(gap, table[0].first);
+		for (int i = 1; i < table.size(); i++)
+		{
+			if(table[i].second <= m)
+			gap = max(gap, table[i].first - table[i - 1].second);
+		}
+		if (m > table[table.size() - 1].second)
+			gap = max(gap, m - table[table.size() - 1].second);
+		if (gap < s)
+			possible = false;
+		if (possible) cout << "Yes\n";
+		else cout << "No\n";
+
+	}
+}
