@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int tt; cin >> tt;
+	while (tt--)
+	{
+		int a; cin >> a;
+		string s = to_string(a);
+		bool valid = false;
+		if (s.size() >= 3)
+		{
+			if(s[0] == '1' && s[1] == '0' && s[2] >= '2')
+				valid = true;
+			if (s.size() > 3 && s[0] == '1' && s[1] == '0' && s[2] == '1')
+				valid = true;
+		}
+		cout << (valid ? "YES" : "NO") << endl;
+	}
+}
