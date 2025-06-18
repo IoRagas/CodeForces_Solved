@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int tt; cin >> tt;
+	while (tt--)
+	{
+		int n; cin >> n;
+		unordered_map<int, int> tt;
+		int m = 0;
+		for (int i = 0; i < n; i++)
+		{
+			int x; cin >> x;
+			tt[x]++;
+			m = max(tt[x], m);
+		}
+		cout << n - m << endl;
+	}
+}
