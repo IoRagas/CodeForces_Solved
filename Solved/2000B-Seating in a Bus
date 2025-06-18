@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int tt; cin >> tt;
+	while (tt--)
+	{
+		int n; cin >> n;
+		vector<int> table(n);
+		bool valid = true;
+		for (int i = 0; i < n; i++)
+			cin >> table[i];
+		vector<bool> occ(n, false);
+		occ[table[0] - 1] = true;
+		for (int i = 1; i < table.size(); i++)
+		{
+			if( (table[i]- 2 >= 0 && occ[table[i] - 2] == true) || ( table[i] < n && occ[table[i]] == true) )
+				occ[table[i] - 1] = true;
+			else
+			{
+				valid = false;
+				break;
+			}
+		}
+		cout << (valid ? "YES" : "NO") << endl;
+	}
+}
